@@ -1,0 +1,38 @@
+{
+  "seed": 42,
+  "customer": "MT_001",
+  "synthetic_demo": false,
+  "source": "https://archive.ics.uci.edu/dataset/321/electricityloaddiagrams20112014",
+  "lookback_hours": 168,
+  "horizon_hours": 24,
+  "selected_on_validation": "LSTM",
+  "tree_config": {
+    "max_depth": 5,
+    "n_estimators": 250
+  },
+  "device": "cpu",
+  "versions": {
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "sklearn": "1.6.1",
+    "xgboost": "3.2.0",
+    "torch": "2.10.0+cpu"
+  },
+  "splits": {
+    "train": {
+      "first_origin": "2012-01-08 00:00:00",
+      "last_origin": "2013-12-31 00:00:00",
+      "days": 724
+    },
+    "validation": {
+      "first_origin": "2014-01-01 00:00:00",
+      "last_origin": "2014-06-30 00:00:00",
+      "days": 181
+    },
+    "test": {
+      "first_origin": "2014-07-01 00:00:00",
+      "last_origin": "2014-12-31 00:00:00",
+      "days": 184
+    }
+  }
+}
