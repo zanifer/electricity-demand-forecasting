@@ -52,47 +52,6 @@ The saved run used **CPU**, including a CPU build of PyTorch. Measured fitting a
 
 The largest daily LSTM error in the displayed error table occurred on **1 August 2014**, with MAE of approximately 14.33 kW. All three models performed poorly on that day. The outputs identify a useful case for investigation, but do not establish the cause of the error.
 
-## Repository files
-
-Place the executed notebook at the repository root and the supplied metrics file in `results/`.
-
-| Path | Contents |
-| --- | --- |
-| `README.md` | Project summary, methodology and findings |
-| `electricity-demand-forecasting-can-deep-learning.ipynb` | Executed analysis, code, tables and plots |
-| `results/metrics.csv` | Full-precision evaluation scores |
-
-Running the notebook also writes `forecast_comparison.png`, `test_predictions.csv`, `lstm_training_history.csv`, `experiment_metadata.json`, `lstm_checkpoint.pt` and `xgboost_model.json` to `electricity_results`. These additional outputs are not required to read the executed notebook. Saved model weights do not include the original dataset.
-
-## Running the notebook
-
-### Kaggle
-
-1. Import `electricity-demand-forecasting-can-deep-learning.ipynb` into a Kaggle notebook.
-2. Keep `DEMO_MODE = False` to use the real dataset.
-3. Enable Internet for automatic data downloading, or attach the original UCI dataset ZIP/TXT through Kaggle's input panel. The loader searches attached data for `LD2011_2014.txt` or the original ZIP filename.
-4. For a differently named file or a specific input, set `LOCAL_DATA_PATH` to its exact path.
-5. Run all cells from top to bottom. CPU is sufficient. A GPU is optional for the LSTM and requires a CUDA-enabled PyTorch installation; the setup cell reports the detected device.
-6. Find generated outputs in `/kaggle/working/electricity_results`.
-
-The original ZIP download is approximately 249 MB. A DNS/download error can be avoided by downloading it separately and attaching it as input. The notebook does not silently substitute synthetic data when downloading fails.
-
-### Local Jupyter
-
-Use an environment with NumPy, pandas, Matplotlib, scikit-learn, XGBoost, PyTorch, requests and IPython, plus Jupyter to open the notebook. The notebook installs missing core packages when Internet access is available. Set `LOCAL_DATA_PATH` to the downloaded ZIP or extracted TXT file, then run all cells. Outside Kaggle, outputs are written under the current working directory.
-
-### Versions recorded in the submitted run
-
-| Package | Version |
-| --- | --- |
-| NumPy | 2.0.2 |
-| pandas | 2.3.3 |
-| scikit-learn | 1.6.1 |
-| XGBoost | 3.2.0 |
-| PyTorch | 2.10.0+cpu |
-
-The random seed is 42. The notebook also uses deterministic cuDNN settings when applicable. Results can vary with package versions, hardware and numerical implementations. The recorded versions above are not a complete environment lockfile.
-
 ## Limitations
 
 - One customer, one validation block and six months of test forecasts limit generalisability.
